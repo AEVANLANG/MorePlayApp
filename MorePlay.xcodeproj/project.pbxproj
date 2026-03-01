@@ -1,7 +1,25 @@
 {
 archiveVersion = 1;
+objectVersion = 56;
 classes = {};
-objectVersion = 55;
-objects = {};
-rootObject = 000000000000000000000000;
+
+objects = {
+
+000000000000000000000001 = {
+    isa = PBXProject;
+    targets = (
+        000000000000000000000002,
+    );
+};
+
+000000000000000000000002 = {
+    isa = PBXNativeTarget;
+    name = MorePlay;
+    productName = MorePlay;
+};
+
+};
+
+rootObject = 000000000000000000000001;
+
 }
