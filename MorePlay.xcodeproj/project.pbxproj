@@ -86,8 +86,9 @@ A00000000000000000000007 = {
     buildSettings = {
         PRODUCT_NAME = MorePlay;
         SDKROOT = iphoneos;
-        PRODUCT_BUNDLE_IDENTIFIER = com.metalliquest.moreplay;
+        PRODUCT_BUNDLE_IDENTIFIER = com.yourname.moreplay;
         CODE_SIGN_STYLE = Automatic;
+        DEVELOPMENT_TEAM = ABCDE12345;
     };
 };
 
@@ -97,8 +98,9 @@ A00000000000000000000008 = {
     buildSettings = {
         PRODUCT_NAME = MorePlay;
         SDKROOT = iphoneos;
-        PRODUCT_BUNDLE_IDENTIFIER = com.metalliquest.moreplay;
+        PRODUCT_BUNDLE_IDENTIFIER = com.yourname.moreplay;
         CODE_SIGN_STYLE = Automatic;
+        DEVELOPMENT_TEAM = ABCDE12345;
     };
 };
 
