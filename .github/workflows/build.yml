@@ -1,0 +1,34 @@
+name: Build iOS App
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Select Xcode
+      run: sudo xcode-select -s /Applications/Xcode.app
+
+    - name: Build
+      run: |
+        xcodebuild \
+        -scheme MorePlay \
+        -configuration Release \
+        -sdk iphoneos \
+        build
+
+    - name: Package IPA
+      run: |
+        mkdir Payload
+        cp -r build/Release-iphoneos/MorePlay.app Payload
+        zip -r MorePlay.ipa Payload
+
+    - name: Upload IPA
+      uses: actions/upload-artifact@v4
+      with:
+        name: MorePlay
+        path: MorePlay.ipa
