@@ -1,12 +1,10 @@
-name: Build MorePlay IPA
+name: Build IPA
 
 on:
   workflow_dispatch:
 
 jobs:
-
   build:
-
     runs-on: macos-latest
 
     steps:
@@ -16,11 +14,19 @@ jobs:
     - name: Build App
       run: |
 
+        xcodebuild \
+        -project MorePlay.xcodeproj \
+        -scheme MorePlay \
+        -sdk iphoneos \
+        -configuration Release \
+        build
+
+    - name: Create IPA
+      run: |
+
         mkdir Payload
 
-        mkdir Payload/MorePlay.app
-
-        cp -R MorePlay/* Payload/MorePlay.app/
+        cp -r build/Release-iphoneos/MorePlay.app Payload/
 
         zip -r MorePlay.ipa Payload
 
