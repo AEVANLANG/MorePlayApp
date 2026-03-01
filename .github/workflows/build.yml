@@ -1,32 +1,10 @@
-name: Build MorePlay IPA
-
-on:
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: macos-latest
-
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Build App
-      run: |
-        xcodebuild \
-          -project MorePlay.xcodeproj \
-          -scheme MorePlay \
-          -sdk iphoneos \
-          -configuration Release \
-          -allowProvisioningUpdates
-
-    - name: Create IPA
-      run: |
-        mkdir -p Payload
-        cp -r build/Release-iphoneos/MorePlay.app Payload/
-        zip -r MorePlay.ipa Payload
-
-    - name: Upload IPA
-      uses: actions/upload-artifact@v4
-      with:
-        name: MorePlayIPA
-        path: MorePlay.ipa
+            - name: Expo-Unsigned-IPA
+  # You may pin to the exact commit or the version.
+  # uses: gamekiller2048/Expo-Unsigned-IPA@4228e289556fca6253e400123b7e3d3832483541
+  uses: gamekiller2048/Expo-Unsigned-IPA@v1
+  with:
+    # name of expo project
+    PROJECT_NAME: 
+    # whether to clear the last cache
+    CLEAR_CACHE: # optional, default is false
+          
